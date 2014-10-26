@@ -4,7 +4,16 @@
 ## Write a short comment describing this function
 
 makeCacheMatrix <- function(x = matrix()) {
-
+	m<<-NULL
+	for(i in 0:x) {
+		n<<-NULL
+		for (j in 0:x)
+		{
+			n<<-c(n,sample(1:x, 1, replace = TRUE))
+		}
+		m<<-cbind(n,m)
+	}
+	makeCacheMatrix<<-m
 }
 
 
@@ -12,4 +21,5 @@ makeCacheMatrix <- function(x = matrix()) {
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
+        solve(x)%*%x
 }
